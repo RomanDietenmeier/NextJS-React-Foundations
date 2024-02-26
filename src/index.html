@@ -10,13 +10,18 @@
     <script type="text/jsx">
       const app = document.getElementById("app");
 
-      function Header(){
-        return <h1>Develop. Preview. Ship.</h1>;
+      function Header({title="Develop. Preview. Ship."}){
+        return <h1>{title}</h1>;
       }
 
       function Homepage(){
+        const names=["Robert Habeck","Jens Spahn","Karl Lauterbach"];
         return <div>
+          <Header title="React"/>
           <Header/>
+          <ul>
+            {names.map((name,index)=>(<li key={index}>{name}</li>))}
+          </ul>
         </div>;
       }
 
