@@ -10,11 +10,18 @@
     <script type="text/jsx">
       const app = document.getElementById("app");
 
+
       function Header({title="Develop. Preview. Ship."}){
         return <h1>{title}</h1>;
       }
 
       function Homepage(){
+        const [likes,setLikes]=React.useState(0);
+
+        function onClickLike(){
+          setLikes(x=>x+1);
+        }
+
         const names=["Robert Habeck","Jens Spahn","Karl Lauterbach"];
         return <div>
           <Header title="React"/>
@@ -22,6 +29,7 @@
           <ul>
             {names.map((name,index)=>(<li key={index}>{name}</li>))}
           </ul>
+          <button onClick={onClickLike}>Like {likes}</button>
         </div>;
       }
 
